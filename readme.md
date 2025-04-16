@@ -28,15 +28,15 @@ First, install the DCMTK toolkit:
 ### Install from PyPI
 
 ```bash
-pip install dicom-generator
+pip install dicom-maker
 ```
 
 ### Install from Source
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/dicom-generator.git
-   cd dicom-generator
+   git clone https://github.com/yourusername/dicom-maker.git
+   cd dicom-maker
    ```
 
 2. Install the package:
@@ -56,7 +56,7 @@ pip install dicom-generator
 After installation, you can use the command-line interface:
 
 ```bash
-dicom-generator --output-dir ./dicom-data --modality CT --body-part CHEST --num-studies 1 --num-series 3 --num-instances 5
+dicom-maker --output-dir ./dicom-data --modality CT --body-part CHEST --num-studies 1 --num-series 3 --num-instances 5
 ```
 
 ### As a Python Module
@@ -93,13 +93,13 @@ generate_dicom_data(args)
 Generate 2 CT studies of the chest, each with 3 series and 10 instances per series:
 
 ```bash
-dicom-generator --output-dir ./chest-ct-studies --modality CT --body-part CHEST --num-studies 2 --num-series 3 --num-instances 10
+dicom-maker --output-dir ./chest-ct-studies --modality CT --body-part CHEST --num-studies 2 --num-series 3 --num-instances 10
 ```
 
 Generate a single MR study of the brain with 5 series (potentially T1, T2, FLAIR, etc.):
 
 ```bash
-dicom-generator --output-dir ./brain-mr-study --modality MR --body-part BRAIN --num-series 5
+dicom-maker --output-dir ./brain-mr-study --modality MR --body-part BRAIN --num-series 5
 ```
 
 ## License
