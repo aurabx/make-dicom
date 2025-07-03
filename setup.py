@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dicom-maker",
-    version="1.0.0",
+    version="1.0.2",
     author="Aurabox",
     author_email="hello@aurabox.cloud",
     description="Enhanced DICOM Generator for creating sample DICOM studies",
@@ -27,7 +27,7 @@ setuptools.setup(
     ],
     entry_points={
         "console_scripts": [
-            "dicom-maker=dicom_generator.main:cli_main",
+            "dicom-maker=generators:main",
         ],
     },
 )

@@ -16,8 +16,6 @@ python main.py --output-dir ./dicom-data --modality CT --body-part CHEST --num-s
 
 import argparse
 import os
-import random
-from pathlib import Path
 
 # Import utility modules
 from utils.uid_generator import generate_uid

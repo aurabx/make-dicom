@@ -1,15 +1,14 @@
 # Enhanced DICOM Generator
 
-This tool generates sample DICOM studies with consistent patient demographics and comprehensive clinical metadata including institution information, referring physicians, laterality, and other commonly used DICOM fields.
+This tool generates high-quality sample DICOM studies with realistic patient demographics, institution metadata, and consistent references for various modalities. It supports features to simulate clinical environments for testing and development purposes.
 
-## Features
+## Updated Features
 
-- Generate multiple studies with multiple series and instances
-- Support for various modalities (CT, MR, US, CR)
-- Realistic patient demographics
-- Institution and physician information
-- Modality-specific configurations
-- Consistent UIDs and references between files
+- **Improved Study Generation**: Create multiple studies with interlinked series and instances.
+- **Expanded Modality Support**: Includes CT, MR, US, CR, and new modalities as needed.
+- **Realistic Metadata**: Utilize generated patient demographics, institution details, and physician information.
+- **Modality-Specific Configurations**: Tailor configurations for modality-specific needs.
+- **UID Management**: Consistent and reproducible DICOM UIDs across instances.
 
 ## Requirements
 
@@ -18,12 +17,20 @@ This tool generates sample DICOM studies with consistent patient demographics an
 
 ## Installation
 
-### System Requirements
+### System Requirements for DCMTK
 
-First, install the DCMTK toolkit:
-- **Linux**: `sudo apt-get install dcmtk`
-- **macOS**: `brew install dcmtk`
-- **Windows**: Download from [DCMTK website](https://dicom.offis.de/dcmtk.php.en) and add to PATH
+**Linux**:
+```bash
+sudo apt-get install dcmtk
+```
+
+**macOS**:
+```bash
+brew install dcmtk
+```
+
+**Windows**:
+Download DCMTK from the [official website](https://dicom.offis.de/dcmtk.php.en) and add it to your system PATH.
 
 ### Install from PyPI
 
@@ -34,18 +41,18 @@ pip install dicom-maker
 ### Install from Source
 
 1. Clone this repository:
-   ```
+   ```bash
    git clone https://github.com/yourusername/dicom-maker.git
    cd dicom-maker
    ```
 
 2. Install the package:
-   ```
+   ```bash
    pip install .
    ```
 
-   For development mode:
-   ```
+   Install in development mode:
+   ```bash
    pip install -e .
    ```
 
@@ -53,19 +60,21 @@ pip install dicom-maker
 
 ### Command Line Interface
 
-After installation, you can use the command-line interface:
+Run the following command to generate DICOM studies:
 
 ```bash
 dicom-maker --output-dir ./dicom-data --modality CT --body-part CHEST --num-studies 1 --num-series 3 --num-instances 5
 ```
 
-### As a Python Module
+### Usage as a Python Module
+
+You can import the package and use it as part of your Python code:
 
 ```python
-from dicom_generator import generate_dicom_data
+from dicom_maker import generate_dicom_data
 from argparse import Namespace
 
-# Create arguments
+# Define arguments
 args = Namespace(
     output_dir="./dicom-data",
     modality="CT",
@@ -75,33 +84,43 @@ args = Namespace(
     num_instances=5
 )
 
-# Generate DICOM data
+# Generate DICOM datasets
 generate_dicom_data(args)
 ```
 
-### Parameters
+### Accepted Parameters
 
-- `--output-dir`: Output directory for DICOM files
-- `--modality`: DICOM modality (CT, MR, US, CR)
-- `--body-part`: Body part examined
-- `--num-studies`: Number of studies to generate (default: 1)
-- `--num-series`: Number of series per study (default: 1)
-- `--num-instances`: Number of instances per series (default: 1)
+| Parameter         | Description                                   | Default |
+|--------------------|-----------------------------------------------|---------|
+| `--output-dir`     | Directory where generated DICOM files go     | `./dicom-data` |
+| `--modality`       | Modality for the DICOM files (e.g., CT, MR)  | `CT`    |
+| `--body-part`      | Body part being examined                     | `CHEST` |
+| `--num-studies`    | Number of studies to generate                | `1`     |
+| `--num-series`     | Number of series per study                   | `1`     |
+| `--num-instances`  | Number of instances per series               | `1`     |
+
+---
 
 ## Examples
 
-Generate 2 CT studies of the chest, each with 3 series and 10 instances per series:
+### Generate Multiple Studies
+
+Generate 2 CT studies of the chest, each having 3 series and 10 instances:
 
 ```bash
 dicom-maker --output-dir ./chest-ct-studies --modality CT --body-part CHEST --num-studies 2 --num-series 3 --num-instances 10
 ```
 
-Generate a single MR study of the brain with 5 series (potentially T1, T2, FLAIR, etc.):
+### Generate a Brain MR Study
+
+Generate a single MR study of the brain with 5 series (e.g., T1, T2, FLAIR, etc.):
 
 ```bash
 dicom-maker --output-dir ./brain-mr-study --modality MR --body-part BRAIN --num-series 5
 ```
 
+---
+
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is released under the MIT License. See the `LICENSE` file for additional details.
