@@ -17,21 +17,21 @@ python main.py --output-dir ./dicom-data --modality CT --body-part CHEST --num-s
 import argparse
 import os
 
-# Import utility modules
-from utils.uid_generator import generate_uid
-from utils.template_generator import create_dicom_template
-
 # Import generator modules
-from generators.patient_generator import generate_patient_demographics, get_laterality
-from generators.institution_generator import generate_institution_info, generate_physician_info
-from generators.study_generator import (
+from make_dicom.generators import (
+    generate_patient_demographics,
+    generate_institution_info,
+    generate_physician_info,
     generate_study_info,
-    generate_series_info
+    generate_series_info,
+    get_laterality,
+    create_dicom_from_template
 )
-from generators.dicom_generator import create_dicom_from_template
+from make_dicom.utils import create_dicom_template, generate_uid
+
 
 # Import data modules
-from data.modality_configs import MODALITY_CONFIGS
+from make_dicom.data.modality_configs import MODALITY_CONFIGS
 
 
 def main():

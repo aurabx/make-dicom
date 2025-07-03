@@ -7,8 +7,8 @@ import os
 import tempfile
 import subprocess
 import random
-from utils.uid_generator import generate_uid
-from data.modality_configs import MODALITY_CONFIGS
+from make_dicom.utils.uid_generator import generate_uid
+from make_dicom.data.modality_configs import MODALITY_CONFIGS
 
 
 def create_dicom_from_template(template_content, output_path, metadata):

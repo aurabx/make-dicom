@@ -4,7 +4,7 @@ UID generation utilities for DICOM Generator
 """
 
 import uuid
-from config import UID_ROOT
+from make_dicom.config import UID_ROOT
 
 
 def generate_uid(prefix=UID_ROOT):

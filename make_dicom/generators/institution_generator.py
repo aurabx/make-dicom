@@ -4,7 +4,7 @@ Institution and provider information generation for DICOM Generator
 """
 
 import random
-from config import (
+from make_dicom.config import (
     INSTITUTION_NAMES,
     INSTITUTION_ADDRESSES,
     PHYSICIAN_FIRST_NAMES,

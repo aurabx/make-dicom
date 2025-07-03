@@ -71,7 +71,7 @@ dicom-maker --output-dir ./dicom-data --modality CT --body-part CHEST --num-stud
 You can import the package and use it as part of your Python code:
 
 ```python
-from dicom_maker import generate_dicom_data
+from make_dicom.dicom_maker import generate_dicom_data
 from argparse import Namespace
 
 # Define arguments

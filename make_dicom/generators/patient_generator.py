@@ -5,7 +5,7 @@ Patient information generation for DICOM Generator
 
 import random
 import datetime
-from config import (
+from make_dicom.config import (
     PATIENT_FIRST_NAMES,
     PATIENT_LAST_NAMES,
     INSTITUTION_ADDRESSES,

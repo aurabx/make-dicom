@@ -5,8 +5,8 @@ Study information generation for DICOM Generator
 
 import random
 import datetime
-from data.modality_configs import STUDY_DESCRIPTIONS
-from utils.uid_generator import generate_uid
+from make_dicom.data.modality_configs import STUDY_DESCRIPTIONS
+from make_dicom.utils.uid_generator import generate_uid
 
 
 def generate_accession_number():
@@ -116,7 +116,7 @@ def generate_series_info(study_instance_uid, modality, body_part, series_number,
     Returns:
         dict: Dictionary containing series information
     """
-    from data.modality_configs import MODALITY_CONFIGS
+    from make_dicom.data.modality_configs import MODALITY_CONFIGS
 
     # Generate series UID
     series_instance_uid = generate_uid()
